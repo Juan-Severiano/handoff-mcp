@@ -18,19 +18,12 @@ MCP server that acts as a **shared memory hub** across multiple LLMs (Claude, Ge
 | `get_decisions` | Retrieve architectural decisions |
 | `search_context` | Search across patterns, decisions, and snapshots |
 
-## Install
+## Setup
 
-**Requirements:** [Bun](https://bun.sh)
+No install needed. Just add the config below to your tool and it runs automatically via `bunx`.
 
-```bash
-git clone https://github.com/Juan-Severiano/handoff-mcp
-cd handoff-mcp
-bun install
-```
-
-## Configure
-
-Replace `/path/to/handoff-mcp` with the absolute path where you cloned the repo.
+> **Requires [Bun](https://bun.sh) installed on your machine.**
+> Install it with: `curl -fsSL https://bun.sh/install | bash`
 
 ### Claude Desktop
 
@@ -40,8 +33,8 @@ File: `~/Library/Application Support/Claude/claude_desktop_config.json`
 {
   "mcpServers": {
     "handoff-mcp": {
-      "command": "bun",
-      "args": ["/path/to/handoff-mcp/src/index.ts"]
+      "command": "bunx",
+      "args": ["handoff-mcp"]
     }
   }
 }
@@ -50,7 +43,7 @@ File: `~/Library/Application Support/Claude/claude_desktop_config.json`
 ### Claude Code
 
 ```bash
-claude mcp add handoff-mcp bun /path/to/handoff-mcp/src/index.ts
+claude mcp add handoff-mcp bunx handoff-mcp
 ```
 
 ### Gemini CLI
@@ -61,8 +54,8 @@ File: `~/.gemini/settings.json`
 {
   "mcpServers": {
     "handoff-mcp": {
-      "command": "bun",
-      "args": ["/path/to/handoff-mcp/src/index.ts"]
+      "command": "bunx",
+      "args": ["handoff-mcp"]
     }
   }
 }
@@ -70,15 +63,15 @@ File: `~/.gemini/settings.json`
 
 ### GitHub Copilot (VS Code)
 
-File: `.vscode/mcp.json` in your workspace, or VS Code user `settings.json`:
+File: `.vscode/mcp.json` in your workspace
 
 ```json
 {
   "servers": {
     "handoff-mcp": {
       "type": "stdio",
-      "command": "bun",
-      "args": ["/path/to/handoff-mcp/src/index.ts"]
+      "command": "bunx",
+      "args": ["handoff-mcp"]
     }
   }
 }
@@ -91,28 +84,30 @@ File: `~/.codex/config.yaml`
 ```yaml
 mcpServers:
   handoff-mcp:
-    command: bun
+    command: bunx
     args:
-      - /path/to/handoff-mcp/src/index.ts
+      - handoff-mcp
 ```
 
-### DB path (optional)
+---
 
-By default, `context.db` is created in the working directory. Override via env var:
+### Shared database (recommended)
+
+By default each tool creates its own `context.db` in the working directory. To share the same memory across all LLMs, point them all to the same file:
 
 ```json
 {
   "mcpServers": {
     "handoff-mcp": {
-      "command": "bun",
-      "args": ["/path/to/handoff-mcp/src/index.ts"],
-      "env": { "DB_PATH": "/your/shared/path/context.db" }
+      "command": "bunx",
+      "args": ["handoff-mcp"],
+      "env": { "DB_PATH": "/Users/you/handoff.db" }
     }
   }
 }
 ```
 
-> Tip: point all LLMs to the same `DB_PATH` so they share one database across tools.
+---
 
 ## Flow
 
@@ -138,6 +133,9 @@ Gemini takes over
 ## Dev
 
 ```bash
+git clone https://github.com/Juan-Severiano/handoff-mcp
+cd handoff-mcp
+bun install
 bun run dev      # watch mode
 bun run inspect  # MCP Inspector
 bun run build    # compile to dist/

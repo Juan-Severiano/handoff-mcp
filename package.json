@@ -1,6 +1,6 @@
 {
   "name": "handoff-mcp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "MCP Server for shared project context across multiple LLMs (Claude, Gemini, Copilot)",
   "module": "src/index.ts",
   "scripts": {
