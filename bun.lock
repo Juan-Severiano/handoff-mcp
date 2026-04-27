@@ -3,7 +3,7 @@
   "configVersion": 0,
   "workspaces": {
     "": {
-      "name": "context-hub-mcp",
+      "name": "handoff-mcp",
       "dependencies": {
         "@modelcontextprotocol/sdk": "^1.6.1",
         "zod": "^3.23.8",

@@ -13,7 +13,7 @@ const dbPath = process.env.DB_PATH ?? "context.db";
 const db = new Database(dbPath, { create: true });
 initializeDatabase(db);
 
-const server = new McpServer({ name: "context-hub-mcp", version: "1.0.0" });
+const server = new McpServer({ name: "handoff-mcp", version: "1.0.0" });
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Project management

@@ -1,5 +1,5 @@
 {
-  "name": "context-hub-mcp",
+  "name": "handoff-mcp",
   "version": "1.0.0",
   "description": "MCP Server for shared project context across multiple LLMs (Claude, Gemini, Copilot)",
   "module": "src/index.ts",
@@ -10,7 +10,7 @@
     "inspect": "npx @modelcontextprotocol/inspector bun src/index.ts"
   },
   "bin": {
-    "context-hub-mcp": "dist/index.js"
+    "handoff-mcp": "dist/index.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.6.1",

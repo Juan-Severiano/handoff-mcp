@@ -1,4 +1,4 @@
-# context-hub-mcp
+# handoff-mcp
 
 MCP server that acts as a **shared memory hub** across multiple LLMs (Claude, Gemini, Copilot). Any agent entering a project immediately understands its architecture, patterns, and decisions — and can pick up exactly where the previous LLM left off.
 
@@ -23,8 +23,8 @@ MCP server that acts as a **shared memory hub** across multiple LLMs (Claude, Ge
 **Requirements:** [Bun](https://bun.sh)
 
 ```bash
-git clone https://github.com/your-username/context-hub-mcp
-cd context-hub-mcp
+git clone https://github.com/your-username/handoff-mcp
+cd handoff-mcp
 bun install
 ```
 
@@ -37,7 +37,7 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
   "mcpServers": {
     "context-hub": {
       "command": "bun",
-      "args": ["/path/to/context-hub-mcp/src/index.ts"]
+      "args": ["/path/to/handoff-mcp/src/index.ts"]
     }
   }
 }
@@ -46,7 +46,7 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 ### Claude Code
 
 ```bash
-claude mcp add context-hub bun /path/to/context-hub-mcp/src/index.ts
+claude mcp add context-hub bun /path/to/handoff-mcp/src/index.ts
 ```
 
 ### DB path (optional)
