@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk ls *)",
+      "Bash(npm install *)",
+      "Bash(rtk read *)",
+      "Bash(rtk npm *)",
+      "Bash(./node_modules/.bin/tsc *)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(bun install *)",
+      "Bash(bun run *)",
+      "Bash(kill %1)",
+      "Bash(bun tsc *)",
+      "Bash(bun x *)",
+      "Bash(rtk grep *)",
+      "Bash(timeout 3 bun src/index.ts)",
+      "Bash(gtimeout 3 bun src/index.ts)"
+    ]
+  }
+}
