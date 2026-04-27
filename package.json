@@ -1,12 +1,12 @@
 {
   "name": "handoff-mcp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "MCP Server for shared project context across multiple LLMs (Claude, Gemini, Copilot)",
   "module": "src/index.ts",
   "scripts": {
     "start": "bun src/index.ts",
     "dev": "bun --watch src/index.ts",
-    "build": "bun build src/index.ts --outfile dist/index.js --target bun",
+    "build": "bun build src/index.ts --outfile dist/index.js --target bun && echo '#!/usr/bin/env bun' | cat - dist/index.js > dist/tmp.js && mv dist/tmp.js dist/index.js && chmod +x dist/index.js",
     "inspect": "npx @modelcontextprotocol/inspector bun src/index.ts"
   },
   "bin": {
