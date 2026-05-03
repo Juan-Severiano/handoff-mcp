@@ -2,6 +2,7 @@
 
 ![handoff-mcp header](docs/header_image.png)
 
+
 MCP server that acts as a **shared memory hub** across multiple LLMs (Claude, Gemini, Copilot, Codex). Any agent entering a project immediately understands its architecture, patterns, and decisions — and can pick up exactly where the previous LLM left off.
 
 ## Tools
